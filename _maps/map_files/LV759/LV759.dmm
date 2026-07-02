@@ -14860,7 +14860,6 @@
 "cJD" = (
 /obj/effect/decal/cleanable/blood,
 /obj/item/shard,
-/obj/effect/landmark/corpsespawner/colonist,
 /turf/open/floor/multi_tiles{
 	dir = 8
 	},
@@ -15953,7 +15952,6 @@
 	},
 /obj/item/ammo_casing/bullet,
 /obj/item/ammo_casing/bullet,
-/obj/effect/landmark/corpsespawner/pmc,
 /turf/open/shuttle/dropship/six,
 /area/lv759/indoors/nt_research_complex/hangarbayshuttle)
 "cTF" = (
@@ -19529,7 +19527,6 @@
 	pixel_y = 12
 	},
 /obj/effect/landmark/weed_node,
-/obj/effect/landmark/corpsespawner/colonist,
 /turf/open/urban/street/sidewalkfull,
 /area/lv759/outdoors/colony_streets/central_streets)
 "dAE" = (
@@ -21366,11 +21363,6 @@
 	dir = 4
 	},
 /area/lv759/indoors/colonial_marshals/changing_room)
-"dSx" = (
-/obj/effect/decal/cleanable/blood,
-/obj/effect/landmark/corpsespawner/colonist,
-/turf/open/shuttle/dropship/three,
-/area/lv759/indoors/spaceport/starglider)
 "dSz" = (
 /obj/effect/urban/decal/dirt,
 /obj/effect/urban/decal/dirt,
@@ -22060,7 +22052,6 @@
 /area/lv759/outdoors/colony_streets/north_east_street)
 "dZf" = (
 /obj/effect/decal/cleanable/blood,
-/obj/effect/landmark/corpsespawner/colonist,
 /turf/open/urban/street/asphalt,
 /area/lv759/outdoors/colony_streets/north_west_street)
 "dZj" = (
@@ -25109,7 +25100,6 @@
 /obj/item/stack/rods,
 /obj/item/shard,
 /obj/effect/decal/cleanable/blood,
-/obj/effect/landmark/corpsespawner/colonist,
 /turf/open/urban/street/sidewalkcenter{
 	dir = 4
 	},
@@ -25506,7 +25496,6 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	color = "#a6aeab"
 	},
-/obj/effect/landmark/corpsespawner/scientist,
 /turf/open/floor/prison/cellstripe{
 	dir = 1
 	},
@@ -25924,7 +25913,6 @@
 /obj/effect/urban/decal/dirt,
 /obj/effect/urban/decal/dirt,
 /obj/item/ammo_casing/bullet,
-/obj/effect/landmark/corpsespawner/pmc,
 /turf/open/floor/prison,
 /area/lv759/indoors/caves/central_caves)
 "eJz" = (
@@ -25952,7 +25940,6 @@
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood,
 /obj/item/ammo_casing/bullet,
-/obj/effect/landmark/corpsespawner/pmc,
 /turf/open/urbanshale/layer1,
 /area/lv759/indoors/caves/central_caves)
 "eJM" = (
@@ -26513,7 +26500,6 @@
 	color = "#a6aeab";
 	dir = 4
 	},
-/obj/effect/landmark/corpsespawner/security,
 /turf/open/floor/urban/tile/tilegrey,
 /area/lv759/indoors/nt_research_complex/hallwaysouthwest)
 "eOY" = (
@@ -30598,7 +30584,6 @@
 /area/lv759/indoors/south_public_restroom)
 "fAC" = (
 /obj/effect/decal/cleanable/blood,
-/obj/effect/landmark/corpsespawner/doctor,
 /turf/open/floor/urban/tile/tilewhitecheckered,
 /area/lv759/indoors/hospital/virology)
 "fAD" = (
@@ -39903,7 +39888,6 @@
 /obj/item/ammo_casing/bullet,
 /obj/item/ammo_casing/bullet,
 /obj/effect/urban/decal/dirt,
-/obj/effect/landmark/corpsespawner/miner,
 /turf/open/urban/street/sidewalk{
 	dir = 4
 	},
@@ -48246,7 +48230,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1{
 	dir = 4
 	},
-/obj/effect/landmark/corpsespawner/security,
 /turf/open/floor/prison{
 	dir = 5
 	},
@@ -51233,7 +51216,6 @@
 /obj/structure/barricade/handrail/wire{
 	dir = 4
 	},
-/obj/effect/landmark/corpsespawner/scientist,
 /turf/open/floor/prison/ramptop,
 /area/lv759/indoors/nt_research_complex_entrance)
 "jhy" = (
@@ -56510,7 +56492,6 @@
 /obj/effect/decal/cleanable/blood/gibs/core,
 /obj/effect/ai_node,
 /obj/structure/cable,
-/obj/effect/landmark/corpsespawner/security,
 /turf/open/urban/street/cement3,
 /area/lv759/outdoors/colony_streets/east_central_street)
 "kfk" = (
@@ -58257,7 +58238,6 @@
 "kwW" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/dirt/grime1,
-/obj/effect/landmark/corpsespawner/prisoner,
 /turf/open/floor/freezer,
 /area/lv759/indoors/colonial_marshals/prisoners_recreation_area)
 "kwZ" = (
@@ -65508,7 +65488,6 @@
 /area/lv759/indoors/nt_research_complex/dormsfoyer)
 "lNg" = (
 /obj/effect/decal/cleanable/blood,
-/obj/effect/landmark/corpsespawner/colonist,
 /turf/open/floor/orange_edge{
 	dir = 8
 	},
@@ -65541,7 +65520,6 @@
 	pixel_x = -10;
 	pixel_y = 14
 	},
-/obj/effect/landmark/corpsespawner/colonist,
 /turf/open/floor/urban/metal/grated{
 	dir = 1
 	},
@@ -66503,7 +66481,6 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	color = "#a6aeab"
 	},
-/obj/effect/landmark/corpsespawner/colonist,
 /turf/open/floor/urban/tile/tilebeigecheckered,
 /area/lv759/indoors/apartment/eastfoyer)
 "lVu" = (
@@ -67861,11 +67838,6 @@
 /obj/item/stack/cable_coil,
 /turf/open/floor/mainship/stripesquare,
 /area/lv759/indoors/nt_research_complex/researchanddevelopment)
-"mhP" = (
-/obj/effect/decal/cleanable/blood,
-/obj/effect/landmark/corpsespawner/colonist,
-/turf/open/urban/street/sidewalk,
-/area/lv759/outdoors/colony_streets/east_central_street)
 "mhQ" = (
 /obj/structure/disposalpipe/segment{
 	dir = 8
@@ -71899,7 +71871,6 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	color = "#a6aeab"
 	},
-/obj/effect/landmark/corpsespawner/security,
 /turf/open/floor/kutjevo/colors/orange,
 /area/lv759/indoors/spaceport/docking_bay_1)
 "mSn" = (
@@ -78667,16 +78638,6 @@
 	},
 /turf/open/urban/street/sidewalk,
 /area/lv759/outdoors/colony_streets/central_streets)
-"oaG" = (
-/obj/effect/decal/cleanable/blood,
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 8;
-	pixel_x = -1;
-	pixel_y = 1
-	},
-/obj/effect/landmark/corpsespawner/colonist,
-/turf/open/floor/officetiles,
-/area/lv759/indoors/spaceport/starglider)
 "oaH" = (
 /obj/effect/urban/decal/dirt,
 /obj/effect/turf_decal/medical_decals/doc/stripe,
@@ -81093,7 +81054,6 @@
 "ozq" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood,
-/obj/effect/landmark/corpsespawner/security,
 /turf/open/floor/prison/ramptop,
 /area/lv759/indoors/nt_research_complex_entrance)
 "ozs" = (
@@ -81276,7 +81236,6 @@
 /obj/item/ammo_casing/bullet,
 /obj/effect/urban/decal/road/road_edge/two,
 /obj/effect/urban/decal/road/lines4,
-/obj/effect/landmark/corpsespawner/security,
 /turf/open/urban/street/asphalt,
 /area/lv759/outdoors/colony_streets/south_west_street)
 "oAX" = (
@@ -87214,7 +87173,6 @@
 /obj/item/flashlight,
 /obj/item/ammo_casing/bullet,
 /obj/effect/decal/cleanable/blood,
-/obj/effect/landmark/corpsespawner/security,
 /turf/open/floor/prison/ramptop,
 /area/lv759/indoors/nt_research_complex_entrance)
 "pCW" = (
@@ -87572,7 +87530,6 @@
 /obj/structure/platform/mineral{
 	color = "#bbbaae"
 	},
-/obj/effect/landmark/corpsespawner/colonist,
 /turf/open/urban/street/sidewalk{
 	dir = 1
 	},
@@ -90248,7 +90205,7 @@
 	pixel_y = 30
 	},
 /turf/open/floor/mainship/research/containment/floor1,
-/area/lv759/indoors/nt_research_complex/xenobiology)
+/area)
 "qeN" = (
 /obj/effect/urban/decal/dirt,
 /turf/open/floor/urban/tile/darkgrey_bigtile,
@@ -94235,7 +94192,6 @@
 /obj/effect/decal/cleanable/blood/gibs/limb,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood/drip,
-/obj/effect/landmark/corpsespawner/colonist,
 /turf/open/floor/freezer,
 /area/lv759/indoors/apartment/westshowers)
 "qSZ" = (
@@ -98878,7 +98834,6 @@
 /obj/effect/urban/decal/doubleroad/lines4{
 	pixel_x = 4
 	},
-/obj/effect/landmark/corpsespawner/colonist,
 /turf/open/urban/street/asphalt,
 /area/lv759/outdoors/colony_streets/east_central_street)
 "rLe" = (
@@ -100875,7 +100830,6 @@
 	pixel_x = -10;
 	pixel_y = 14
 	},
-/obj/effect/landmark/corpsespawner/security,
 /turf/open/floor/prison{
 	dir = 10
 	},
@@ -102051,7 +102005,6 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
 	},
-/obj/effect/landmark/corpsespawner/security,
 /turf/open/floor/prison{
 	dir = 8
 	},
@@ -103854,7 +103807,6 @@
 /obj/structure/prop/urban/misc/buildinggreebliessmall2{
 	pixel_y = 25
 	},
-/obj/effect/landmark/corpsespawner/security,
 /turf/open/floor/prison{
 	dir = 10
 	},
@@ -113746,7 +113698,6 @@
 "umQ" = (
 /obj/effect/decal/cleanable/blood/gibs/limb,
 /obj/effect/turf_decal/warning_stripes/thin,
-/obj/effect/landmark/corpsespawner/scientist,
 /turf/open/floor/prison/cellstripe{
 	dir = 1
 	},
@@ -135409,7 +135360,6 @@
 	},
 /obj/effect/decal/cleanable/blood,
 /obj/effect/spawner/random/weaponry/shiv,
-/obj/effect/landmark/corpsespawner/prisoner,
 /turf/open/floor/prison,
 /area/lv759/indoors/colonial_marshals/prisoners_cells)
 "yaA" = (
@@ -140070,7 +140020,7 @@ ahQ
 ahQ
 ahQ
 ahQ
-oaG
+edO
 edO
 ahQ
 dxi
@@ -140470,7 +140420,7 @@ amP
 rOK
 csn
 iUt
-dSx
+iUt
 oaw
 nrW
 jdx
@@ -170350,7 +170300,7 @@ mJW
 rDE
 etv
 aYg
-mhP
+dKe
 oCc
 bgg
 oEc
