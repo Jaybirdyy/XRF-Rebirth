@@ -1,0 +1,406 @@
+#define CRYOMOBS 'icons/obj/cryo_mobs.dmi'
+///Temp that the cryo tube applies to occupants
+#define CRYO_TEMP 100
+
+/obj/machinery/atmospherics/components/unary/cryo_cell
+	name = "cryo cell"
+	icon = 'icons/obj/machines/cryogenics2.dmi'
+	icon_state = "cell_mapper"
+	density = TRUE
+	max_integrity = 350
+	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 100, BOMB = 0, BIO = 100, FIRE = 30, ACID = 30)
+	layer = ABOVE_MOB_LAYER
+	pipe_flags = PIPING_ONE_PER_TURF|PIPING_DEFAULT_LAYER_ONLY
+	interaction_flags = INTERACT_MACHINE_TGUI
+	can_see_pipes = FALSE
+	light_range = 3
+	light_power = 2
+	light_color = LIGHT_COLOR_EMISSIVE_GREEN
+	///Whether we will autoeject when the occupant is fully healed
+	var/autoeject = FALSE
+	///The stored beaker for healing reagents
+	var/obj/item/reagent_containers/glass/beaker = null
+	///Internal radio for announcing stuff
+	var/obj/item/radio/headset/mainship/doc/radio
+	//Number of ticks permitted to elapse without a patient before the cryotube shuts itself off to save processing
+	var/idle_ticks_until_shutdown = 60
+	///The mob to be healed
+	var/mob/living/carbon/occupant
+
+/obj/machinery/atmospherics/components/unary/cryo_cell/Initialize(mapload)
+	. = ..()
+	initialize_directions = dir
+	beaker = new /obj/item/reagent_containers/glass/beaker/cryomix
+	radio = new(src)
+	update_appearance(UPDATE_ICON)
+
+/obj/machinery/atmospherics/components/unary/cryo_cell/on_construction()
+	return ..(dir, dir)
+
+/obj/machinery/atmospherics/components/unary/cryo_cell/examine(mob/user)
+	. = ..()
+	if(occupant)
+		if(on)
+			. += "Someone's inside [src]!"
+		else
+			. += "You can barely make out a form floating in [src]."
+	else
+		. += "[src] seems empty."
+
+/obj/machinery/atmospherics/components/unary/cryo_cell/Destroy()
+	QDEL_NULL(radio)
+	QDEL_NULL(beaker)
+	go_out()
+	return ..()
+
+/obj/machinery/atmospherics/components/unary/cryo_cell/contents_explosion(severity)
+	. = ..()
+	if(beaker)
+		beaker.ex_act(severity)
+
+/obj/machinery/atmospherics/components/unary/cryo_cell/handle_atom_del(atom/A)
+	. = ..()
+	if(A == beaker)
+		beaker = null
+		return
+	if(A == occupant)
+		occupant = null
+
+/obj/machinery/atmospherics/components/unary/cryo_cell/update_icon()
+	. = ..()
+	if(!on)
+		set_light(0)
+	else
+		set_light(initial(light_range))
+
+/obj/machinery/atmospherics/components/unary/cryo_cell/update_icon_state()
+	. = ..()
+	if(!on)
+		icon_state = "cell_off"
+	else
+		icon_state = "cell_on"
+	if(occupant)
+		icon_state += "_occupied"
+
+/obj/machinery/atmospherics/components/unary/cryo_cell/update_overlays()
+	. = ..()
+	if(!on)
+		return
+	. += emissive_appearance(icon, "cell_emissive", src, alpha = src.alpha)
+
+/obj/machinery/atmospherics/components/unary/cryo_cell/process()
+	..()
+	if(machine_stat & (NOPOWER|BROKEN))
+		turn_off()
+		return
+
+	if(!on)
+		stop_processing()
+		return
+
+	if(!occupant)
+		idle_ticks_until_shutdown--
+		if(idle_ticks_until_shutdown <= 0)
+			turn_off()
+		return
+
+	if(occupant.stat == DEAD)
+		go_out(TRUE, TRUE) //Whether auto-eject is on or not, we don't permit literal deadbeats to hang around.
+		return
+	idle_ticks_until_shutdown = initial(idle_ticks_until_shutdown) //reset idle ticks on usage
+	process_occupant()
+
+/obj/machinery/atmospherics/components/unary/cryo_cell/relaymove(mob/user)
+	self_release()
+
+/obj/machinery/atmospherics/components/unary/cryo_cell/attackby(obj/item/I, mob/user, params)
+	. = ..()
+	if(.)
+		return
+
+	if(istype(I, /obj/item/reagent_containers/glass))
+
+		for(var/datum/reagent/X in I.reagents.reagent_list)
+			if(X.medbayblacklist)
+				to_chat(user, span_warning("The cryo cell's automatic safety features beep softly, they must have detected a harmful substance in the beaker."))
+				return
+
+		if(beaker)
+			to_chat(user, span_warning("A beaker is already loaded into the machine."))
+			return
+
+		if(istype(I, /obj/item/reagent_containers/glass/bucket))
+			to_chat(user, span_warning("That's too big to fit!"))
+			return
+
+		beaker = I
+
+
+		var/reagentnames = ""
+
+		for(var/datum/reagent/R in beaker.reagents.reagent_list)
+			reagentnames += ", [R.name]"
+
+		if(!user.transferItemToLoc(I, src))
+			return
+
+		user.visible_message("[user] adds \a [I] to \the [src]!", "You add \a [I] to \the [src]!")
+
+	else if(istype(I, /obj/item/healthanalyzer) && occupant) //Allows us to use the analyzer on the occupant without taking him out.
+		var/obj/item/healthanalyzer/J = I
+		J.attack(occupant, user)
+
+/obj/machinery/atmospherics/components/unary/cryo_cell/grab_interact(obj/item/grab/grab, mob/user, base_damage = BASE_OBJ_SLAM_DAMAGE, is_sharp = FALSE)
+	. = ..()
+	if(.)
+		return
+	if(isxeno(user))
+		return
+	if(machine_stat & (NOPOWER|BROKEN))
+		to_chat(user, span_notice("\ [src] is non-functional!"))
+		return
+
+	if(occupant)
+		to_chat(user, span_notice("\ [src] is already occupied!"))
+		return
+
+	var/mob/grabbed_mob
+
+	if(ismob(grab.grabbed_thing))
+		grabbed_mob = grab.grabbed_thing
+
+	else if(istype(grab.grabbed_thing,/obj/structure/closet/bodybag/cryobag))
+		var/obj/structure/closet/bodybag/cryobag/cryobag = grab.grabbed_thing
+		if(!cryobag.bodybag_occupant)
+			to_chat(user, span_warning("The stasis bag is empty!"))
+			return
+		grabbed_mob = cryobag.bodybag_occupant
+		cryobag.open()
+		user.start_pulling(grabbed_mob)
+
+	if(!ishuman(grabbed_mob))
+		to_chat(user, span_notice("\ [src] is compatible with humanoid anatomies only!"))
+		return
+
+	if(grabbed_mob.abiotic())
+		to_chat(user, span_warning("Subject cannot have abiotic items on."))
+		return
+
+	put_mob(grabbed_mob, TRUE)
+
+	return TRUE
+
+/obj/machinery/atmospherics/components/unary/cryo_cell/can_crawl_through()
+	return // can't ventcrawl in or out of cryo.
+
+/obj/machinery/atmospherics/components/unary/cryo_cell/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = xeno_attacker.xeno_caste.melee_ap, isrightclick = FALSE)
+	if(!occupant)
+		to_chat(xeno_attacker, span_xenowarning("There is nothing of interest in there."))
+		return
+	if(xeno_attacker.status_flags & INCORPOREAL || xeno_attacker.do_actions)
+		return
+	visible_message(span_warning("[xeno_attacker] begins to pry the [src]'s cover!"), 3)
+	playsound(src,'sound/effects/metal_creaking.ogg', 25, 1)
+	if(!do_after(xeno_attacker, 2 SECONDS))
+		return
+	playsound(loc, 'sound/effects/metal_creaking.ogg', 25, 1)
+	go_out()
+
+/obj/machinery/atmospherics/components/unary/cryo_cell/attack_hand(mob/living/user)
+	. = ..()
+	if(.)
+		return
+	ui_interact(user)
+
+/obj/machinery/atmospherics/components/unary/cryo_cell/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+
+	if(!ui)
+		ui = new(user, src, "Cryo", name)
+		ui.open()
+
+/obj/machinery/atmospherics/components/unary/cryo_cell/ui_data(mob/user)
+	var/list/data = list()
+	data["isOperating"] = on
+	data["autoEject"] = autoeject
+
+	data["occupant"] = list()
+	if(occupant)
+		var/mob/living/mob_occupant = occupant
+		data["occupant"]["name"] = mob_occupant.name
+		switch(mob_occupant.stat)
+			if(CONSCIOUS)
+				data["occupant"]["stat"] = "Conscious"
+				data["occupant"]["statstate"] = "good"
+			if(UNCONSCIOUS)
+				data["occupant"]["stat"] = "Unconscious"
+				data["occupant"]["statstate"] = "average"
+			if(DEAD)
+				data["occupant"]["stat"] = "Dead"
+				data["occupant"]["statstate"] = "bad"
+		data["occupant"]["health"] = round(mob_occupant.health, 1)
+		data["occupant"]["maxHealth"] = mob_occupant.maxHealth
+		data["occupant"]["minHealth"] = mob_occupant.health_threshold_dead
+		data["occupant"]["bruteLoss"] = round(mob_occupant.getBruteLoss(), 1)
+		data["occupant"]["oxyLoss"] = round(mob_occupant.getOxyLoss(), 1)
+		data["occupant"]["toxLoss"] = round(mob_occupant.getToxLoss(), 1)
+		data["occupant"]["fireLoss"] = round(mob_occupant.getFireLoss(), 1)
+		data["occupant"]["bodyTemperature"] = round(mob_occupant.bodytemperature, 1)
+		if(mob_occupant.bodytemperature < 255)
+			data["occupant"]["temperaturestatus"] = "good"
+		else if(mob_occupant.bodytemperature < T0C)
+			data["occupant"]["temperaturestatus"] = "average"
+		else
+			data["occupant"]["temperaturestatus"] = "bad"
+
+	data["cellTemperature"] = CRYO_TEMP
+
+	data["isBeakerLoaded"] = beaker ? TRUE : FALSE
+	var/beakerContents = list()
+	if(beaker?.reagents && length(beaker.reagents.reagent_list))
+		for(var/datum/reagent/R in beaker.reagents.reagent_list)
+			beakerContents += list(list("name" = R.name, "volume" = R.volume))
+	data["beakerContents"] = beakerContents
+	return data
+
+/obj/machinery/atmospherics/components/unary/cryo_cell/ui_act(action, list/params)
+	. = ..()
+	if(.)
+		return
+	switch(action)
+		if("power")
+			if(on)
+				turn_off()
+			else
+				turn_on()
+			. = TRUE
+		if("eject")
+			go_out()
+			. = TRUE
+		if("autoeject")
+			autoeject = !autoeject
+			. = TRUE
+		if("ejectbeaker")
+			if(beaker)
+				beaker.forceMove(drop_location())
+				if(Adjacent(usr) && !issilicon(usr))
+					usr.put_in_hands(beaker)
+				beaker = null
+				. = TRUE
+
+///Activates the tube
+/obj/machinery/atmospherics/components/unary/cryo_cell/proc/turn_on()
+	if (machine_stat & (NOPOWER|BROKEN))
+		to_chat(usr, span_warning("The cryo cell is not functioning."))
+		return
+	on = TRUE
+	idle_ticks_until_shutdown = initial(idle_ticks_until_shutdown)
+	start_processing()
+	update_icon()
+
+///Turns off the tube
+/obj/machinery/atmospherics/components/unary/cryo_cell/proc/turn_off()
+	on = FALSE
+	stop_processing()
+	update_icon()
+
+///Heals the occupant
+/obj/machinery/atmospherics/components/unary/cryo_cell/proc/process_occupant()
+	if(!occupant)
+		return
+	if(occupant.stat == DEAD)
+		return
+	if(!occupant.getBruteLoss(TRUE) && !occupant.getFireLoss(TRUE) && !occupant.getCloneLoss() && autoeject) //release the patient automatically when brute and burn are handled on non-robotic limbs
+		go_out(TRUE)
+		return
+	occupant.bodytemperature = CRYO_TEMP //Atmos is long gone, we'll just set temp directly.
+	occupant.Sleeping(20 SECONDS)
+	//You'll heal slowly just from being in an active pod, but chemicals speed it up.
+	if(occupant.getOxyLoss())
+		occupant.adjustOxyLoss(-1)
+	if (occupant.getToxLoss())
+		occupant.adjustToxLoss(-1)
+	occupant.heal_overall_damage(1, 1, updating_health = TRUE)
+	var/has_cryo = occupant.reagents.get_reagent_amount(/datum/reagent/medicine/cryoxadone) >= 1
+	var/has_clonexa = occupant.reagents.get_reagent_amount(/datum/reagent/medicine/clonexadone) >= 1
+	var/has_cryo_medicine = has_cryo || has_clonexa
+	if(beaker && !has_cryo_medicine)
+		beaker.reagents.trans_to(occupant, 1, 10)
+		beaker.reagents.reaction(occupant)
+
+///Puts a mob inside
+/obj/machinery/atmospherics/components/unary/cryo_cell/proc/put_mob(mob/living/carbon/M as mob, put_in = null)
+	if (machine_stat & (NOPOWER|BROKEN))
+		to_chat(usr, span_warning("The cryo cell is not functioning."))
+		return
+	if(!ishuman(M))
+		to_chat(usr, span_notice("\ [src] is compatible with humanoid anatomies only!"))
+		return
+	if (occupant)
+		to_chat(usr, span_danger("The cryo cell is already occupied!"))
+		return
+	if (M.abiotic())
+		to_chat(usr, span_warning("Subject may not have abiotic items on."))
+		return
+	if(put_in) //Select an appropriate message
+		visible_message(span_notice("[usr] puts [M] in [src]."), 3)
+	else
+		visible_message(span_notice("[usr] climbs into [src]."), 3)
+	M.forceMove(src)
+	if(M.health > -100 && (M.health < 0 || M.IsSleeping()))
+		to_chat(M, span_boldnotice("You feel a cold liquid surround you. Your skin starts to freeze up."))
+	occupant = M
+	occupant.time_entered_cryo = world.time
+	occupant.set_remote_control(src)
+	update_icon()
+	return TRUE
+
+///Ejects the occupant
+/obj/machinery/atmospherics/components/unary/cryo_cell/proc/go_out(auto_eject = null, dead = null)
+	if(!occupant)
+		return
+	if(occupant in contents)
+		occupant.forceMove(get_step(loc, dir))
+	occupant.bodytemperature = max(occupant.bodytemperature, BODYTEMP_COLD_DAMAGE_LIMIT_ONE + 1)
+	if(auto_eject) //Turn off and announce if auto-ejected because patient is recovered or dead.
+		turn_off()
+		playsound(loc, 'sound/machines/ping.ogg', 100, 14)
+		var/reason = "Reason for release:</b> Patient recovery."
+		if(dead)
+			reason = "<b>Reason for release:</b> Patient death."
+		radio.talk_into(src, "Patient [occupant] has been automatically released from [src] at: [get_area(occupant)]. [reason]", RADIO_CHANNEL_MEDICAL)
+	occupant.record_time_in_cryo()
+	occupant.set_remote_control(null)
+	occupant = null
+	update_icon()
+
+///Ejects the occupant, including yourself
+/obj/machinery/atmospherics/components/unary/cryo_cell/verb/move_eject()
+	set name = "Eject occupant"
+	set category = "IC.Object"
+	set src in oview(1)
+
+	if(usr != occupant)
+		if(usr.stat != CONSCIOUS)
+			return
+		go_out()
+		return
+
+	if(usr.stat == DEAD)
+		return
+	self_release()
+
+///Allows the occupant to self release
+/obj/machinery/atmospherics/components/unary/cryo_cell/proc/self_release()
+	if(!occupant)
+		return
+	if(!on)
+		go_out()
+		return
+	if(autoeject)
+		return
+	to_chat(occupant, span_notice("Auto release sequence activated. You will be released when you have recovered."))
+	autoeject = TRUE
+
+#undef CRYOMOBS
+#undef CRYO_TEMP

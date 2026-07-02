@@ -1,0 +1,8 @@
+"*":
+  banned_variables:
+  - icon
+  - icon_state
+  - step_x
+  - step_y
+  - plane
+  - layer

@@ -1,0 +1,1065 @@
+/**
+ * Copyright (c) 2020 Aleksej Komarov
+ * SPDX-License-Identifier: MIT
+ */
+
+// Any spans that are not here will fall back to the dark theme,
+// so you do not and should not duplicate entire rulesets from dark theme
+// as they are implied anyway. Just overwrite what you need to!
+
+@use 'sass:map';
+@use 'sass:color';
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  color: var(--color-black);
+}
+
+body {
+  background: hsl(0, 0%, 100%);
+  font-family: Verdana, sans-serif;
+  font-size: 13px;
+  line-height: 1.2;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  word-wrap: break-word;
+}
+
+em {
+  font-style: normal;
+  font-weight: bold;
+}
+
+img {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  -ms-interpolation-mode: nearest-neighbor;
+  image-rendering: pixelated;
+}
+
+img.icon {
+  height: 1em;
+  min-height: 16px;
+  width: auto;
+  vertical-align: bottom;
+}
+
+a {
+  color: hsl(240, 100%, 50%);
+}
+
+a.visited {
+  color: hsl(300, 100%, 50%);
+}
+
+a:visited {
+  color: hsl(300, 100%, 50%);
+}
+
+a.popt {
+  text-decoration: none;
+}
+
+/* POPUPS */
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  background: hsl(0, 0%, 86.7%);
+}
+
+.popup .close {
+  position: absolute;
+  background: hsl(0, 0%, 66.7%);
+  top: 0;
+  right: 0;
+  color: hsl(0, 0%, 20%);
+  text-decoration: none;
+  z-index: 2;
+  padding: 0 10px;
+  height: 30px;
+  line-height: 30px;
+}
+
+.popup .close:hover {
+  background: hsl(0, 0%, 60%);
+}
+
+.popup .head {
+  background: hsl(0, 0%, 60%);
+  color: hsl(0, 0%, 86.7%);
+  padding: 0 10px;
+  height: 30px;
+  line-height: 30px;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  font-weight: bold;
+  border-bottom: 2px solid green;
+}
+
+.popup input {
+  border: 1px solid hsl(0, 0%, 60%);
+  background: hsl(0, 0%, 100%);
+  margin: 0;
+  padding: 5px;
+  outline: none;
+  color: hsl(0, 0%, 20%);
+}
+
+.popup input[type='text']:hover,
+.popup input[type='text']:active,
+.popup input[type='text']:focus {
+  border-color: green;
+}
+
+.popup input[type='submit'] {
+  padding: 5px 10px;
+  background: hsl(0, 0%, 60%);
+  color: hsl(0, 0%, 86.7%);
+  text-transform: uppercase;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.popup input[type='submit']:hover,
+.popup input[type='submit']:focus,
+.popup input[type='submit']:active {
+  background: hsl(0, 0%, 66.7%);
+  cursor: pointer;
+}
+
+.changeFont {
+  padding: 10px;
+}
+
+.changeFont a {
+  display: block;
+  text-decoration: none;
+  padding: 3px;
+  color: hsl(0, 0%, 20%);
+}
+
+.changeFont a:hover {
+  background: hsl(0, 0%, 80%);
+}
+
+.highlightPopup {
+  padding: 10px;
+  text-align: center;
+}
+
+.highlightPopup input[type='text'] {
+  display: block;
+  width: 215px;
+  text-align: left;
+  margin-top: 5px;
+}
+
+.highlightPopup input.highlightColor {
+  background-color: hsl(60, 100%, 50%);
+}
+
+.highlightPopup input.highlightTermSubmit {
+  margin-top: 5px;
+}
+
+/* ADMIN CONTEXT MENU */
+
+.contextMenu {
+  background-color: hsl(0, 0%, 86.7%);
+  position: fixed;
+  margin: 2px;
+  width: 150px;
+}
+
+.contextMenu a {
+  display: block;
+  padding: 2px 5px;
+  text-decoration: none;
+  color: hsl(0, 0%, 20%);
+}
+
+.contextMenu a:hover {
+  background-color: hsl(0, 0%, 80%);
+}
+
+/* ADMIN FILTER MESSAGES MENU */
+
+.filterMessages {
+  padding: 5px;
+}
+
+.filterMessages div {
+  padding: 2px 0;
+}
+
+.filterMessages input {
+}
+
+.filterMessages label {
+}
+
+.icon-stack {
+  height: 1em;
+  line-height: 1em;
+  width: 1em;
+  vertical-align: middle;
+  margin-top: -2px;
+}
+
+/*****************************************
+*
+* OUTPUT ACTUALLY RELATED TO MESSAGES
+*
+******************************************/
+
+/* MOTD */
+
+.motd {
+  color: hsl(75.3, 100%, 26.1%);
+  font-family: Verdana;
+  white-space: normal;
+}
+
+.motd h1,
+.motd h2,
+.motd h3,
+.motd h4,
+.motd h5,
+.motd h6 {
+  color: hsl(75.3, 100%, 26.1%);
+  font-family: Verdana;
+  text-decoration: none;
+}
+
+.motd a,
+.motd a:link,
+.motd a:visited,
+.motd a:active,
+.motd a:hover {
+  color: hsl(75.3, 100%, 26.1%);
+}
+
+.tip {
+  color: hsl(289, 100%, 38.4%);
+  font-weight: bold;
+}
+
+/* ADD HERE FOR BOLD */
+
+.bold,
+.name,
+.prefix,
+.ooc,
+.looc,
+.adminooc,
+.admin,
+.medal,
+.yell {
+  font-weight: bold;
+}
+
+/* ADD HERE FOR ITALIC */
+
+.italic,
+.italics {
+  font-style: italic;
+}
+
+/* OUTPUT COLORS */
+
+.highlight {
+  background: yellow;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: hsl(240, 100%, 50%);
+  font-family: Georgia, Verdana, sans-serif;
+}
+
+h1.alert,
+h2.alert {
+  color: var(--color-black);
+}
+
+.colorooc {
+  color: hsl(225, 100%, 36.1%);
+}
+
+.looc {
+  color: hsl(210, 50%, 60%);
+}
+
+.rlooc {
+  color: hsl(210, 29.8%, 44.7%);
+}
+
+.hostooc {
+  color: var(--color-black);
+}
+.projleadooc {
+  color: hsl(300, 100%, 25.1%);
+}
+.headcoderooc {
+  color: hsl(240, 100%, 19.6%);
+}
+.headminooc {
+  color: hsl(0, 100%, 19.6%);
+}
+.headmentorooc {
+  color: hsl(120, 100%, 12.7%);
+}
+.senioradminooc {
+  color: hsl(349.5, 48.1%, 37.1%);
+}
+.adminooc {
+  color: hsl(350, 100%, 35.3%);
+}
+.trialminooc {
+  color: hsl(12.5, 100%, 47.1%);
+}
+.candiminooc {
+  color: hsl(16, 100%, 55.9%);
+}
+.eventminooc {
+  color: hsl(35.5, 26.8%, 51.8%);
+}
+.mentorooc {
+  color: hsl(120, 100%, 25.1%);
+}
+.maintainerooc {
+  color: hsl(250.3, 72.8%, 63.9%);
+}
+.contributorooc {
+  color: hsl(216.5, 100%, 50%);
+}
+.otherooc {
+  color: hsl(30, 100%, 19.6%);
+}
+.msay {
+  color: hsl(30.5, 30.1%, 35.9%);
+}
+.adminmsay {
+  color: hsl(29.2, 54.5%, 25.9%);
+}
+.headminmsay {
+  color: hsl(30, 52.4%, 16.5%);
+}
+.adminsay {
+  color: hsl(16.2, 100%, 50%);
+}
+
+.admin {
+  color: hsl(224.9, 100%, 61%);
+}
+.asay {
+  color: hsl(280.9, 85.2%, 44.9%);
+}
+.headminasay {
+  color: hsl(281, 85.4%, 26.9%);
+}
+.boldannounce {
+  color: hsl(0, 100%, 50%);
+}
+
+.staffpmin {
+  color: red;
+}
+.staffpmout {
+  color: blue;
+}
+.adminnotice {
+  color: hsl(240, 100%, 50%);
+}
+.adminhelp {
+  color: hsl(0, 100%, 50%);
+}
+
+.say,
+.emote,
+.infoplain {
+}
+
+.deadsay {
+  color: hsl(264, 100%, 45.1%);
+}
+.bigdeadsay {
+  color: hsl(264, 100%, 45.1%);
+  font-size: 140%;
+}
+.tinydeadsay {
+  color: hsl(264, 100%, 45.1%);
+  font-size: 85%;
+}
+
+.radio {
+  color: hsl(120, 73.9%, 31.6%);
+}
+
+.deptradio {
+  color: hsl(300, 74.5%, 40%);
+}
+.comradio {
+  color: hsl(218.8, 50%, 54.5%);
+}
+.syndradio {
+  color: hsl(357.9, 28.9%, 38.6%);
+}
+.centradio {
+  color: hsl(240, 21.4%, 49.4%);
+}
+.airadio {
+  color: hsl(300, 74.5%, 40%);
+}
+
+.casradio {
+  color: hsl(0, 100%, 32%);
+}
+.engradio {
+  color: hsl(35.8, 100%, 32.5%);
+}
+.medradio {
+  color: hsl(164.7, 100%, 25.3%);
+}
+.sciradio {
+  color: hsl(300, 48.5%, 40.4%);
+}
+.supradio {
+  color: hsl(34.6, 59.2%, 41.4%);
+}
+
+.alpharadio {
+  color: hsl(0, 100%, 45.9%);
+}
+.bravoradio {
+  color: hsl(38.9, 85%, 42%);
+}
+.charlieradio {
+  color: hsl(300, 33.3%, 50%);
+}
+.deltaradio {
+  color: hsl(203.2, 100%, 40.6%);
+}
+
+.zuluradio {
+  color: hsl(24.9, 100%, 50%);
+}
+.yankeeradio {
+  color: hsl(180, 100%, 30%);
+}
+.xrayradio {
+  color: hsl(120, 100%, 25.1%);
+}
+.whiskeyradio {
+  color: hsl(300, 100%, 40%);
+}
+
+.binarysay {
+  color: hsl(114, 86.5%, 40.8%);
+  background-color: var(--color-black);
+  display: block;
+}
+.binarysay a {
+  color: hsl(120, 100%, 50%);
+}
+.binarysay a:active,
+.binarysay a:visited {
+  color: hsl(120, 100%, 76.7%);
+}
+
+.yell {
+  font-weight: bold;
+}
+
+.alert {
+  color: hsl(0, 100%, 50%);
+}
+h1.alert,
+h2.alert {
+  color: var(--color-black);
+}
+
+.attack {
+  color: hsl(0, 100%, 50%);
+}
+.moderate {
+  color: hsl(0, 100%, 40%);
+}
+.disarm {
+  color: hsl(0, 100%, 30%);
+}
+.passive {
+  color: hsl(0, 100%, 20%);
+}
+
+.scanner {
+  color: hsl(0, 100%, 50%);
+}
+.scannerb {
+  color: hsl(0, 100%, 50%);
+}
+.scannerburn {
+  color: hsl(38.8, 100%, 50%);
+}
+.scannerburnb {
+  color: hsl(38.8, 100%, 50%);
+}
+.rose {
+  color: hsl(0, 100%, 65.7%);
+}
+.info {
+  color: hsl(240, 100%, 40%);
+}
+.debuginfo {
+  color: hsl(120, 60%, 50%);
+}
+.notice {
+  color: hsl(240, 100%, 30%);
+}
+.tinynotice {
+  color: hsl(240, 100%, 30%);
+  font-size: 85%;
+}
+.xenonotice {
+  color: hsl(140.4, 40%, 27.5%);
+}
+.boldnotice {
+  color: hsl(240, 100%, 30%);
+}
+.warning {
+  color: hsl(0, 100%, 50%);
+}
+.xenowarning {
+  color: hsl(140.4, 40%, 27.5%);
+}
+.boldwarning {
+  color: hsl(0, 100%, 50%);
+}
+.danger {
+  color: hsl(0, 100%, 50%);
+}
+.userdanger {
+  color: hsl(0, 100%, 50%);
+}
+.xenodanger {
+  color: hsl(140.4, 40%, 27.5%);
+}
+.avoidharm {
+  color: hsl(216, 68.9%, 67.3%);
+}
+.xenouserdanger {
+  color: hsl(140.4, 40%, 27.5%);
+}
+.xenoannounce {
+  color: hsl(141.3, 46.4%, 19%);
+}
+.hivemind {
+  color: purple;
+}
+
+.alien {
+  color: hsl(300, 24.4%, 26.5%);
+}
+.newscaster {
+  color: hsl(0, 100%, 25.1%);
+}
+.role_header {
+  color: hsl(0, 0%, 0%);
+}
+.role_body {
+  color: hsl(225, 100%, 42.9%);
+}
+.round_setup {
+  color: hsl(0, 100%, 42.9%);
+}
+.round_header {
+  color: hsl(0, 100%, 42.9%);
+}
+.round_body {
+  color: hsl(209.2, 100%, 7.6%);
+}
+.event_announcement {
+  color: hsl(317.3, 76.1%, 21.4%);
+}
+.seasons_announce {
+  color: hsl(168.1, 75.7%, 42%);
+}
+.season_additional_info {
+  color: hsl(211, 27.9%, 21.8%);
+}
+
+.green {
+  color: hsl(132.6, 78.7%, 36.9%);
+}
+
+.nicegreen {
+  color: hsl(132.6, 78.7%, 36.9%);
+}
+
+.red {
+  color: hsl(0, 100%, 50%);
+}
+
+.blue {
+  color: hsl(240, 100%, 50%);
+}
+
+.nicegreen {
+  color: hsl(132.6, 78.7%, 36.9%);
+}
+
+.shadowling {
+  color: hsl(258.2, 45.8%, 28.2%);
+}
+.cult {
+  color: hsl(0, 100%, 29.4%);
+}
+
+.cultlarge {
+  color: hsl(0, 100%, 29.4%);
+  font-weight: bold;
+  font-size: 185%;
+}
+
+.narsie {
+  color: hsl(0, 100%, 29.4%);
+  font-weight: bold;
+  font-size: 925%;
+}
+
+.narsiesmall {
+  color: hsl(0, 100%, 29.4%);
+  font-weight: bold;
+  font-size: 370%;
+}
+
+.colossus {
+  color: hsl(358.6, 52.1%, 32.7%);
+  font-size: 310%;
+}
+
+.hierophant {
+  color: hsl(280, 100%, 30%);
+}
+
+.hierophant_warning {
+  color: hsl(280, 100%, 30%);
+}
+
+.purple {
+  color: hsl(278.7, 45.8%, 32.5%);
+}
+
+.holoparasite {
+  color: hsl(257.1, 6.4%, 21.4%);
+}
+
+.revennotice {
+  color: hsl(226.7, 48.2%, 22%);
+}
+
+.revenboldnotice {
+  color: hsl(226.7, 48.2%, 22%);
+}
+
+.revenbignotice {
+  color: hsl(226.7, 48.2%, 22%);
+}
+
+.revenminor {
+  color: hsl(273.5, 52.7%, 48%);
+}
+
+.revenwarning {
+  color: hsl(275.9, 85.1%, 39.6%);
+}
+
+.revendanger {
+  color: hsl(275.9, 85.1%, 39.6%);
+}
+
+.deconversion_message {
+  color: hsl(270, 100%, 31.4%);
+}
+
+.ghostalert {
+  color: hsl(264, 100%, 45.1%);
+}
+
+.interface {
+  color: hsl(300, 100%, 10%);
+}
+
+.sans {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+.papyrus {
+  font-family: 'Papyrus', cursive, sans-serif;
+}
+
+.robot {
+  font-family: 'Courier New', cursive, sans-serif;
+}
+
+.greentext {
+  color: hsl(120, 100%, 50%);
+}
+
+.redtext {
+  color: hsl(0, 100%, 50%);
+}
+
+.clown {
+  color: hsl(325.6, 100%, 70.6%);
+}
+
+.singing {
+  font-family: 'Trebuchet MS', cursive, sans-serif;
+  font-style: italic;
+}
+
+.his_grace {
+  color: hsl(119.1, 84.4%, 45.3%);
+}
+
+.hypnophrase {
+  color: hsl(0, 0%, 5.1%);
+  animation: hypnocolor 1500ms infinite;
+  animation-direction: alternate;
+}
+
+@keyframes hypnocolor {
+  0% {
+    color: hsl(0, 0%, 5.1%);
+  }
+
+  25% {
+    color: hsl(266.1, 98.7%, 29.2%);
+  }
+
+  50% {
+    color: hsl(272.3, 80.8%, 46.9%);
+  }
+
+  75% {
+    color: hsl(266.1, 98.7%, 29.2%);
+  }
+
+  100% {
+    color: hsl(191.8, 63.3%, 52.9%);
+  }
+}
+
+.phobia {
+  color: hsl(0, 100%, 43.3%);
+  animation: phobia 750ms infinite;
+}
+
+@keyframes phobia {
+  0% {
+    color: hsl(0, 0%, 5.1%);
+  }
+
+  50% {
+    color: hsl(0, 100%, 43.3%);
+  }
+
+  100% {
+    color: hsl(0, 0%, 5.1%);
+  }
+}
+
+.memo {
+  color: hsl(75.3, 100%, 26.1%);
+}
+
+.abductor {
+  color: hsl(300, 100%, 25.1%);
+}
+
+.mind_control {
+  color: hsl(320, 85%, 33.9%);
+}
+
+.slime {
+  color: hsl(180.9, 100%, 41%);
+}
+
+.drone {
+  color: hsl(60, 0.8%, 51.4%);
+}
+
+.monkey {
+  color: hsl(17.8, 50.2%, 39.4%);
+}
+
+.swarmer {
+  color: hsl(219.2, 100%, 58.6%);
+}
+
+.resonate {
+  color: hsl(174.1, 55.4%, 36.1%);
+}
+
+.monkeyhive {
+  color: hsl(35, 93.5%, 24.1%);
+}
+
+.monkeylead {
+  color: hsl(35, 93.5%, 24.1%);
+}
+
+.internal.boldnshit {
+  color: blue;
+}
+
+/* HELPER CLASSES */
+
+.text-normal {
+  font-weight: normal;
+  font-style: normal;
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+.ml-1 {
+  margin-left: 1em;
+}
+
+.ml-2 {
+  margin-left: 2em;
+}
+
+.ml-3 {
+  margin-left: 3em;
+}
+
+// Provides a horizontal bar with text in the middle
+// I got this off stackoverflow
+.separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.separator::before,
+.separator::after {
+  border-bottom: 1px solid hsla(220, 75%, 25%, 0.5);
+}
+
+.fieldset_legend {
+  background: hsl(0, 0%, 100%); // Chat background color
+
+  &:before {
+    background: hsl(0, 0%, 100%); // Chat background color
+  }
+}
+
+.boxed_message {
+  background: hsl(220, 100%, 97.5%);
+  border-color: hsla(220, 75%, 25%, 0.5);
+
+  &.red_box {
+    background: hsl(0, 100%, 97.5%);
+    color: hsl(0, 45.8%, 27%);
+    border-color: hsla(0, 100%, 50%, 0.5);
+  }
+
+  &.green_box {
+    background: hsl(140, 100%, 97.5%);
+    color: hsl(120, 45.8%, 27%);
+    border-color: hsl(120, 100%, 33%, 0.5);
+  }
+
+  &.blue_box {
+    background: hsl(220, 100%, 97.5%);
+    color: hsl(225, 45.8%, 27%);
+    border-color: hsla(225, 100%, 50%, 0.5);
+  }
+
+  &.purple_box {
+    background: hsl(260, 100%, 97.5%);
+    color: hsl(260, 45.8%, 27%);
+    border-color: hsla(260, 100%, 50%, 0.5);
+  }
+}
+
+.tooltip {
+  font-style: italic;
+  border-bottom: 2px dotted;
+}
+
+$ooc_alert_bg_colors: (
+  'ooc': hsl(230, 100%, 87.1%),
+  'game': hsl(6.3, 100%, 85.1%),
+);
+
+$ooc_alert_border_colors: (
+  'ooc': hsl(225, 100%, 36.1%),
+  'game': hsl(0, 100%, 35.7%),
+);
+
+$ooc_alert_text_colors: (
+  'ooc': hsl(225, 100%, 36.1%),
+  'game': hsl(0, 100%, 35.7%),
+);
+
+$border-width: 4;
+
+$border-width-px: $border-width * 1px;
+
+@each $color-type, $color in $ooc_alert_text_colors {
+  .ooc_alert_#{$color-type} {
+    background: map.get($ooc_alert_bg_colors, $color-type);
+    border: 1px solid map.get($ooc_alert_border_colors, $color-type);
+    margin: var(--space-m);
+    padding: var(--space-m) var(--space-s);
+    color: var(--color-black);
+  }
+
+  .ooc_alert_#{$color-type} .ooc_announcement_text {
+    color: map.get($ooc_alert_text_colors, $color-type);
+    padding: 0.5em 0 0 0.35em;
+  }
+  .ooc_alert_#{$color-type} .separator::before {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid map.get($ooc_alert_border_colors, $color-type);
+  }
+  .ooc_alert_#{$color-type} .separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid map.get($ooc_alert_border_colors, $color-type);
+  }
+}
+
+$alert-stripe-colors: (
+  'default': hsl(231, 50%, 85%),
+  'green': hsl(102, 51%, 84%),
+  'blue': hsl(231, 50%, 85%),
+  'pink': hsl(330, 50%, 85%),
+  'yellow': hsl(51, 100%, 85%),
+  'orange': hsl(37, 100%, 85%),
+  'red': hsl(6, 100%, 85%),
+  'purple': hsl(281, 51%, 88%),
+  'grey': hsl(0, 0%, 89%),
+);
+
+$alert-stripe-alternate-colors: (
+  'default': hsl(231, 51%, 87%),
+  'green': hsl(102, 51%, 87%),
+  'blue': hsl(231, 51%, 87%),
+  'pink': hsl(329, 51%, 88%),
+  'yellow': hsl(50, 100%, 88%),
+  'orange': hsl(37, 100%, 88%),
+  'red': hsl(6, 100%, 88%),
+  'purple': hsl(281, 49%, 90%),
+  'grey': hsl(0, 0%, 92%),
+);
+
+$alert-major-header-colors: (
+  'default': hsl(210, 100%, 19%),
+  'green': hsl(101, 66%, 16%),
+  'blue': hsl(210, 100%, 19%),
+  'pink': hsl(330, 50%, 25%),
+  'yellow': hsl(6, 100%, 30%),
+  'orange': hsl(21, 83%, 38%),
+  'red': hsl(5, 100%, 33%),
+  'purple': hsl(281, 50%, 30%),
+  'grey': hsl(5, 100%, 33%),
+);
+
+$alert-subheader-header-colors: (
+  'default': hsl(7, 100%, 30%),
+  'green': hsl(220, 100%, 26%),
+  'blue': hsl(7, 100%, 30%),
+  'pink': hsl(220, 100%, 26%),
+  'yellow': hsl(211, 50%, 26%),
+  'orange': hsl(220, 100%, 26%),
+  'red': hsl(0, 9%, 26%),
+  'purple': hsl(7, 100%, 30%),
+  'grey': hsl(220, 100%, 26%),
+);
+
+.faction_alert_text {
+  color: hsl(0, 0%, 13%);
+  background: hsl(0, 0%, 92%);
+  padding: 0.5rem 0.5rem;
+}
+.faction_alert_subtitle {
+  padding: 0 0.5rem;
+  padding-top: 0.25rem;
+  font-size: 125%;
+}
+.faction_alert_title {
+  padding: 0 0.5rem;
+  font-size: 185%;
+}
+.faction_alert_minortitle {
+  padding: 0 0.5rem;
+  font-size: 150%;
+}
+.alert_header {
+  padding: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+@each $color-name, $color-value in $alert-stripe-colors {
+  .faction_alert_#{$color-name} {
+    color: hsl(0, 0%, 100%);
+    box-shadow: none;
+    font-weight: bold;
+    margin: 1rem 0 1rem 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    border-image: repeating-linear-gradient(
+      -45deg,
+      map.get($alert-stripe-alternate-colors, $color-name),
+      map.get($alert-stripe-alternate-colors, $color-name) 10px,
+      $color-value 10px,
+      $color-value 20px
+    );
+    border-image-slice: $border-width fill;
+    border-width: $border-width-px;
+    border-image-width: $border-width-px;
+    border-image-outset: 0 0 0 0;
+    border-image-repeat: repeat repeat;
+    border-style: solid;
+  }
+
+  .faction_alert_#{$color-name} .faction_alert_title {
+    color: map.get($alert-major-header-colors, $color-name);
+  }
+
+  .faction_alert_#{$color-name} .faction_alert_minortitle {
+    color: map.get($alert-major-header-colors, $color-name);
+  }
+
+  .faction_alert_#{$color-name} .faction_alert_subtitle {
+    color: map.get($alert-subheader-header-colors, $color-name);
+  }
+
+  .faction_alert_#{$color-name} .faction_alert_text {
+    background-color: color.adjust(
+      map.get($alert-stripe-alternate-colors, $color-name),
+      $lightness: 5%,
+      $space: hsl
+    );
+  }
+}
