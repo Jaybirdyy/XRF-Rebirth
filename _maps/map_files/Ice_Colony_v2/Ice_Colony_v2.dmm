@@ -18444,9 +18444,6 @@
 /turf/open/floor/plating/ground/snow/layer0,
 /area/ice_colony/exterior/surface/clearing/north)
 "dvh" = (
-/obj/effect/landmark/corpsespawner/bridgeofficer{
-	corpsesuit = /obj/item/clothing/suit/storage/snow_suit
-	},
 /obj/effect/decal/cleanable/blood,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/tile/dark2,
@@ -18618,17 +18615,6 @@
 /area/ice_colony/exterior/underground/caves/ice_se)
 "dJU" = (
 /obj/effect/decal/cleanable/blood,
-/obj/effect/landmark/corpsespawner/engineer{
-	corpseglasses = /obj/item/clothing/glasses/welding;
-	corpsemask = /obj/item/clothing/mask/rebreather;
-	corpsepocket1 = /obj/item/storage/pouch/general/medium;
-	corpsepocket2 = /obj/item/storage/pouch/electronics/full;
-	corpseradio = /obj/item/radio/headset/survivor;
-	corpseshoes = /obj/item/clothing/shoes/snow;
-	corpsesuit = /obj/item/clothing/suit/storage/snow_suit;
-	corpseuniform = /obj/item/clothing/under/rank/engineer;
-	name = "Engi"
-	},
 /obj/structure/sign/safety/hazard{
 	dir = 4
 	},
@@ -19420,15 +19406,6 @@
 /obj/structure/bed/chair/wood/normal{
 	dir = 8
 	},
-/obj/effect/landmark/corpsespawner/doctor{
-	corpsebelt = /obj/item/storage/belt/lifesaver/full;
-	corpsegloves = /obj/item/clothing/gloves/latex;
-	corpsepocket2 = /obj/item/storage/pouch/medkit/firstaid;
-	corpseradio = /obj/item/radio/headset/survivor;
-	corpseshoes = /obj/item/clothing/shoes/snow;
-	corpsesuit = /obj/item/clothing/suit/storage/snow_suit/doctor;
-	name = "Dr. Micheal Hwang"
-	},
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/wood,
 /area/ice_colony/surface/clinic/treatment)
@@ -19476,7 +19453,6 @@
 /obj/machinery/shower{
 	dir = 8
 	},
-/obj/effect/landmark/corpsespawner/bridgeofficer,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/freezer,
 /area/ice_colony/surface/dorms/restroom_e)
@@ -19512,10 +19488,6 @@
 /obj/effect/spawner/random/misc/structure/broken_window/colonyspawn,
 /turf/open/floor/plating,
 /area/ice_colony/surface/engineering)
-"eYW" = (
-/obj/effect/landmark/corpsespawner/doctor,
-/turf/open/floor/tile/white,
-/area/ice_colony/underground/medical/lobby/garbledradio)
 "eZp" = (
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk,
@@ -19841,7 +19813,6 @@
 /area/ice_colony/surface/dorms)
 "ftL" = (
 /obj/effect/decal/cleanable/blood,
-/obj/effect/landmark/corpsespawner/pmc,
 /turf/open/floor/tile/dark2,
 /area/ice_colony/underground/security/armory)
 "ftM" = (
@@ -19892,20 +19863,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/dark2,
 /area/ice_colony/surface/hydroponics/north)
-"fxT" = (
-/obj/effect/landmark/corpsespawner/miner{
-	corpseback = /obj/item/storage/backpack/satchel/norm;
-	corpsehelmet = /obj/item/clothing/head/hardhat/white;
-	corpseradio = /obj/item/radio/headset/survivor;
-	corpseshoes = /obj/item/clothing/shoes/snow;
-	corpsesuit = /obj/item/clothing/suit/storage/snow_suit;
-	corpseuniform = /obj/item/clothing/under/rank/miner;
-	mobname = "Shaft Miner";
-	name = "Shaft Miner"
-	},
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/ice_colony/surface/mining)
 "fxX" = (
 /obj/machinery/floodlight/colony,
 /turf/open/floor/plating/ground/snow/layer0,
@@ -20431,7 +20388,6 @@
 /area/ice_colony/exterior/surface/taxiway)
 "gng" = (
 /obj/structure/bed,
-/obj/effect/landmark/corpsespawner/prisoner,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/tile/dark/yellow2{
 	dir = 5
@@ -21210,10 +21166,6 @@
 	dir = 1
 	},
 /area/ice_colony/underground/crew/disposals)
-"hsx" = (
-/obj/effect/landmark/corpsespawner/marine,
-/turf/open/floor/plating,
-/area/ice_colony/underground/maintenance/central)
 "hsQ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -21592,7 +21544,6 @@
 "iac" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
-/obj/effect/landmark/corpsespawner/security,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/dark2,
@@ -22098,13 +22049,6 @@
 /turf/open/floor/tile/dark2,
 /area/ice_colony/surface/research/field_gear)
 "iPh" = (
-/obj/effect/landmark/corpsespawner/miner{
-	corpsehelmet = /obj/item/clothing/head/hardhat;
-	corpsesuit = /obj/item/clothing/suit/storage/snow_suit;
-	corpseuniform = /obj/item/clothing/under/rank/miner;
-	mobname = "Shaft Miner";
-	name = "Shaft Miner"
-	},
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/decal/cleanable/blood/gibs/limb,
 /obj/effect/decal/cleanable/blood,
@@ -22306,7 +22250,6 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/effect/landmark/corpsespawner/miner,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/tile/white,
 /area/ice_colony/underground/hallway/north_west/garbledradio)
@@ -23775,11 +23718,6 @@
 	},
 /turf/open/floor/plating/ground/snow/layer0,
 /area/ice_colony/exterior/surface/clearing/south)
-"lbP" = (
-/obj/effect/decal/cleanable/blood,
-/obj/effect/landmark/corpsespawner/pmc,
-/turf/open/floor/plating,
-/area/ice_colony/exterior/underground/caves/open)
 "leH" = (
 /obj/item/tool/shovel,
 /turf/open/floor/plating/ground/snow/layer0,
@@ -23961,7 +23899,6 @@
 /turf/open/floor/plating/ground/snow/layer1,
 /area/ice_colony/exterior/underground/caves/ice_nw)
 "ltD" = (
-/obj/effect/landmark/corpsespawner/miner,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/wood,
 /area/ice_colony/surface/dorms)
@@ -24382,7 +24319,6 @@
 /obj/structure/bed/chair/wood/normal{
 	dir = 4
 	},
-/obj/effect/landmark/corpsespawner/doctor,
 /obj/effect/decal/cleanable/blood,
 /obj/machinery/light{
 	dir = 8
@@ -24604,11 +24540,6 @@
 /obj/machinery/floodlight/colony,
 /turf/open/floor/plating/ground/snow/layer1,
 /area/ice_colony/exterior/surface/clearing/south)
-"mds" = (
-/obj/effect/landmark/corpsespawner/colonist,
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/wood,
-/area/ice_colony/surface/dorms)
 "mdR" = (
 /obj/effect/spawner/random/engineering/structure/atmospherics_portable/icecolony,
 /obj/machinery/light{
@@ -24733,17 +24664,6 @@
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood/drip,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
-/obj/effect/landmark/corpsespawner/engineer{
-	corpseglasses = /obj/item/clothing/glasses/welding;
-	corpsemask = /obj/item/clothing/mask/rebreather;
-	corpsepocket1 = /obj/item/storage/pouch/general/medium;
-	corpsepocket2 = /obj/item/storage/pouch/electronics/full;
-	corpseradio = /obj/item/radio/headset/survivor;
-	corpseshoes = /obj/item/clothing/shoes/snow;
-	corpsesuit = /obj/item/clothing/suit/storage/snow_suit;
-	corpseuniform = /obj/item/clothing/under/rank/engineer;
-	name = "Engi"
-	},
 /obj/structure/cable,
 /turf/open/floor/tile/dark2,
 /area/ice_colony/surface/engineering)
@@ -25995,11 +25915,6 @@
 /obj/structure/bed/chair/office/light{
 	dir = 8
 	},
-/obj/effect/landmark/corpsespawner/security{
-	corpsesuit = /obj/item/clothing/suit/storage/CMB;
-	corpseuniform = /obj/item/clothing/under/CM_uniform;
-	name = "Deputy Edgar Nogi"
-	},
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/tile/dark/red2{
 	dir = 8
@@ -26601,10 +26516,6 @@
 	},
 /turf/open/floor/tile/dark/brown2,
 /area/ice_colony/underground/requesition/lobby)
-"oGz" = (
-/obj/effect/landmark/corpsespawner/doctor,
-/turf/open/floor/tile/white,
-/area/ice_colony/underground/medical/treatment/garbledradio)
 "oGH" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/tile/dark2,
@@ -28014,10 +27925,6 @@
 /area/ice_colony/surface/garage/three)
 "qLH" = (
 /obj/effect/spawner/random/engineering/metal/nooffset,
-/obj/effect/landmark/corpsespawner/engineer{
-	pixel_x = 2;
-	pixel_y = 2
-	},
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/tile/dark2,
 /area/ice_colony/surface/dorms)
@@ -28245,11 +28152,6 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/obj/effect/landmark/corpsespawner/security{
-	corpsesuit = /obj/item/clothing/suit/storage/CMB;
-	corpseuniform = /obj/item/clothing/under/CM_uniform;
-	name = "Deputy Edgar Nogi"
-	},
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/tile/dark/red2{
 	dir = 4
@@ -28264,7 +28166,6 @@
 /turf/open/floor,
 /area/ice_colony/surface/mining)
 "rcF" = (
-/obj/effect/landmark/corpsespawner/security,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/tile/dark2,
 /area/ice_colony/surface/hangar/checkpoint)
@@ -28608,7 +28509,6 @@
 /area/ice_colony/underground/command/center)
 "rtY" = (
 /obj/structure/bed/chair/wood/normal,
-/obj/effect/landmark/corpsespawner/doctor,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/wood,
 /area/ice_colony/surface/clinic/treatment)
@@ -28861,17 +28761,6 @@
 /turf/open/floor/tile/dark2,
 /area/ice_colony/underground/requesition/sec_storage)
 "rKs" = (
-/obj/effect/landmark/corpsespawner/engineer{
-	corpseglasses = /obj/item/clothing/glasses/welding;
-	corpsemask = /obj/item/clothing/mask/rebreather;
-	corpsepocket1 = /obj/item/storage/pouch/general/medium;
-	corpsepocket2 = /obj/item/storage/pouch/electronics/full;
-	corpseradio = /obj/item/radio/headset/survivor;
-	corpseshoes = /obj/item/clothing/shoes/snow;
-	corpsesuit = /obj/item/clothing/suit/storage/snow_suit;
-	corpseuniform = /obj/item/clothing/under/rank/engineer;
-	name = "Engi"
-	},
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/plating,
 /area/ice_colony/underground/engineering/substation)
@@ -28995,7 +28884,6 @@
 /area/ice_colony/exterior/surface/valley/southeast)
 "rUi" = (
 /obj/structure/bed/chair/office/light,
-/obj/effect/landmark/corpsespawner/engineer/rig,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/tile/dark2,
 /area/ice_colony/surface/engineering)
@@ -29548,7 +29436,6 @@
 /obj/structure/bed/chair/comfy/brown{
 	dir = 1
 	},
-/obj/effect/landmark/corpsespawner/commander,
 /obj/effect/decal/cleanable/blood,
 /obj/item/weapon/gun/revolver/cmb,
 /turf/open/floor/wood,
@@ -29590,7 +29477,6 @@
 /area/ice_colony/exterior/surface/valley/southeast)
 "sGf" = (
 /obj/effect/decal/cleanable/blood,
-/obj/effect/landmark/corpsespawner/scientist,
 /turf/open/floor/tile/dark2,
 /area/ice_colony/underground/hallway/south_east)
 "sHc" = (
@@ -30023,7 +29909,6 @@
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/effect/decal/cleanable/blood/gibs/body,
-/obj/effect/landmark/corpsespawner/colonist,
 /turf/open/floor/tile/white,
 /area/ice_colony/underground/medical/treatment/garbledradio)
 "tjg" = (
@@ -31123,7 +31008,6 @@
 	},
 /area/ice_colony/surface/research)
 "uGe" = (
-/obj/effect/landmark/corpsespawner/doctor,
 /obj/item/weapon/gun/shotgun/pump/cmb,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/tile/white,
@@ -31318,17 +31202,6 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/blood,
-/obj/effect/landmark/corpsespawner/engineer{
-	corpseglasses = /obj/item/clothing/glasses/welding;
-	corpsemask = /obj/item/clothing/mask/rebreather;
-	corpsepocket1 = /obj/item/storage/pouch/general/medium;
-	corpsepocket2 = /obj/item/storage/pouch/electronics/full;
-	corpseradio = /obj/item/radio/headset/survivor;
-	corpseshoes = /obj/item/clothing/shoes/snow;
-	corpsesuit = /obj/item/clothing/suit/storage/snow_suit;
-	corpseuniform = /obj/item/clothing/under/rank/engineer;
-	name = "Engi"
-	},
 /turf/open/floor/carpet,
 /area/ice_colony/underground/crew/leisure)
 "uRV" = (
@@ -31904,10 +31777,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating,
 /area/ice_colony/underground/maintenance/engineering)
-"vEb" = (
-/obj/effect/landmark/corpsespawner/chef,
-/turf/open/floor/freezer,
-/area/ice_colony/surface/bar/canteen)
 "vEs" = (
 /obj/effect/spawner/random/engineering/structure/atmospherics_portable/icecolony,
 /turf/open/floor/plating/icefloor,
@@ -32093,7 +31962,6 @@
 /area/ice_colony/underground/crew/bball/garbledradio)
 "vVu" = (
 /obj/machinery/optable,
-/obj/effect/landmark/corpsespawner/scientist,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood/gibs,
 /turf/open/floor/tile/green/whitegreen,
@@ -32461,10 +32329,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump{
 	dir = 1;
 	on = 1
-	},
-/obj/effect/landmark/corpsespawner/miner{
-	corpseradio = /obj/item/radio/headset/survivor;
-	corpsesuit = /obj/item/clothing/suit/storage/snow_suit
 	},
 /turf/open/floor/freezer,
 /area/ice_colony/surface/bar/bar)
@@ -33107,7 +32971,6 @@
 /area/ice_colony/underground/hallway/south_east/garbledradio)
 "xlf" = (
 /obj/effect/decal/cleanable/blood,
-/obj/effect/landmark/corpsespawner/pmc,
 /turf/open/floor/tile/dark/blue2,
 /area/ice_colony/underground/command/center)
 "xli" = (
@@ -33723,10 +33586,6 @@
 /obj/effect/spawner/random/misc/structure/closet/tool,
 /turf/open/floor/tile/dark/yellow2,
 /area/ice_colony/underground/engineering)
-"xOc" = (
-/obj/effect/landmark/corpsespawner/miner,
-/turf/open/floor/plating/ground/snow/layer0,
-/area/ice_colony/exterior/surface/valley/south/excavation)
 "xOK" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
@@ -39195,7 +39054,7 @@ ePo
 ePo
 wIE
 wIE
-lbP
+rLq
 wIE
 wIE
 jCM
@@ -43623,7 +43482,7 @@ wPH
 hRD
 yeK
 eTj
-eYW
+eTj
 nuG
 jlt
 qMj
@@ -46799,7 +46658,7 @@ pCj
 lSc
 lrW
 dzz
-oGz
+qOu
 dGX
 dyd
 njd
@@ -48711,7 +48570,7 @@ btp
 bvf
 bsQ
 plh
-hsx
+seh
 lCa
 byp
 bxO
@@ -49347,7 +49206,7 @@ bpQ
 bvl
 bsQ
 lCa
-hsx
+seh
 gYp
 byp
 bxP
@@ -53254,7 +53113,7 @@ arl
 arm
 arE
 aAi
-mds
+ltD
 ast
 arE
 ast
@@ -55468,7 +55327,7 @@ bcL
 bci
 bci
 ctm
-xOc
+ctm
 ctm
 dyb
 btz
@@ -55798,7 +55657,7 @@ apC
 arw
 arE
 jGM
-mds
+ltD
 lHU
 arE
 ast
@@ -56491,7 +56350,7 @@ aQh
 aRj
 aKw
 aTh
-vEb
+aNZ
 aNZ
 aUY
 aKw
@@ -74017,7 +73876,7 @@ alE
 amj
 amK
 jGP
-fxT
+amK
 aoq
 rbW
 sXm
