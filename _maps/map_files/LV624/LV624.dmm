@@ -2011,15 +2011,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/sand2/garbledradio)
-"bce" = (
-/obj/effect/landmark/corpsespawner/miner{
-	corpseback = /obj/item/storage/backpack;
-	corpseidjob = "Laborer";
-	corpseuniform = /obj/item/clothing/under/colonist;
-	name = "Colonist Roester Kalin"
-	},
-/turf/open/floor/tile/red/yellowfull,
-/area/lv624/ground/sand4)
 "bcg" = (
 /turf/closed/gm/dense,
 /area/lv624/ground/jungle10)
@@ -2774,10 +2765,6 @@
 /obj/structure/flora/ausbushes/sunnybush,
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
 /area/lv624/ground/jungle9)
-"byd" = (
-/obj/effect/landmark/corpsespawner/security,
-/turf/open/floor/plating/ground/dirt,
-/area/lv624/lazarus/overgrown)
 "byC" = (
 /obj/structure/flora/tree/jungle,
 /turf/open/ground/grass/grass2,
@@ -3912,11 +3899,6 @@
 /turf/open/floor/plating/platebot,
 /area/lv624/lazarus/engineering)
 "cKM" = (
-/obj/effect/landmark/corpsespawner/chef{
-	corpsesuit = null;
-	corpseuniform = /obj/item/clothing/under/colonist;
-	name = "Colonist Jed Willis"
-	},
 /obj/effect/decal/cleanable/blood/splatter/animated,
 /obj/item/weapon/harpoon,
 /turf/open/liquid/water/river/autosmooth,
@@ -4868,7 +4850,6 @@
 /turf/open/floor/tile/bar,
 /area/lv624/lazarus/canteen)
 "dNz" = (
-/obj/effect/landmark/corpsespawner/scientist,
 /obj/item/weapon/gun/pistol/holdout,
 /turf/open/floor/tile/purple/whitepurple{
 	dir = 5
@@ -5266,12 +5247,6 @@
 /obj/structure/largecrate/supply/medicine/blood,
 /turf/open/floor/plating,
 /area/lv624/lazarus/quartstorage/dome)
-"ejh" = (
-/obj/effect/landmark/corpsespawner/scientist,
-/obj/machinery/power/geothermal,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/lv624/lazarus/engineering)
 "ejj" = (
 /obj/effect/spawner/random/misc/structure/girder/regularweighted,
 /turf/open/floor/plating/ground/dirt,
@@ -5415,11 +5390,6 @@
 	},
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle9)
-"erS" = (
-/obj/structure/cable,
-/obj/effect/landmark/corpsespawner/prisoner,
-/turf/open/floor/wood,
-/area/lv624/lazarus/chapel)
 "esh" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/grille/smoothing,
@@ -5988,15 +5958,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle3)
-"ffX" = (
-/obj/effect/landmark/corpsespawner/doctor{
-	corpseback = null;
-	corpsegloves = /obj/item/clothing/gloves/latex;
-	corpseuniform = /obj/item/clothing/under/colonist;
-	name = "Colonist Mio Linno"
-	},
-/turf/open/floor/wood,
-/area/lv624/lazarus/corporate_affairs)
 "fgp" = (
 /obj/structure/bed/chair{
 	dir = 8
@@ -6163,12 +6124,6 @@
 /area/lv624/lazarus/atmos)
 "fqc" = (
 /obj/machinery/light/small,
-/obj/effect/landmark/corpsespawner/doctor{
-	corpseback = null;
-	corpsegloves = /obj/item/clothing/gloves/latex;
-	corpseuniform = /obj/item/clothing/under/colonist;
-	name = "Colonist Redo Koster"
-	},
 /turf/open/floor/wood,
 /area/lv624/lazarus/corporate_affairs)
 "fqC" = (
@@ -8525,7 +8480,6 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 2
 	},
-/obj/effect/landmark/corpsespawner/PMC,
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/secure_storage)
 "iav" = (
@@ -11052,9 +11006,9 @@
 /turf/open/floor/plating,
 /area/lv624/lazarus/engineering)
 "kQY" = (
-/obj/effect/landmark/corpsespawner/prisoner,
-/turf/open/floor/tile/white,
-/area/lv624/lazarus/main_hall)
+/obj/effect/spawner/random/machinery/machine_frame,
+/turf/open/floor/tile/vault,
+/area)
 "kRd" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -13069,11 +13023,6 @@
 /turf/open/ground/grass,
 /area/lv624/ground/jungle6)
 "ndl" = (
-/obj/effect/landmark/corpsespawner/bridgeofficer{
-	corpseidjob = "Bridge Officer";
-	corpseuniform = /obj/item/clothing/under/waiter;
-	name = "Mr. Johnson Telovin"
-	},
 /obj/item/tool/crowbar,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood,
@@ -14514,12 +14463,6 @@
 	},
 /obj/effect/decal/cleanable/blood/splatter/animated,
 /obj/item/clothing/mask/facehugger/dead,
-/obj/effect/landmark/corpsespawner/scientist{
-	corpseshoes = /obj/item/clothing/shoes/black;
-	corpsesuit = /obj/item/clothing/suit/storage/labcoat;
-	corpseuniform = /obj/item/clothing/under/colonist;
-	name = "Colonist Jan Horris"
-	},
 /turf/open/floor/freezer,
 /area/lv624/lazarus/research)
 "oVl" = (
@@ -19836,18 +19779,6 @@
 	dir = 9
 	},
 /area/lv624/lazarus/hydroponics)
-"uVU" = (
-/obj/effect/landmark/corpsespawner/scientist{
-	corpseback = null;
-	corpseshoes = /obj/item/clothing/shoes/black;
-	corpsesuit = /obj/item/clothing/suit/storage/labcoat;
-	corpseuniform = /obj/item/clothing/under/colonist;
-	name = "Colonist Tevin Marks"
-	},
-/turf/open/floor/tile/purple/whitepurple{
-	dir = 5
-	},
-/area/lv624/lazarus/research)
 "uWm" = (
 /obj/effect/ai_node,
 /turf/open/floor/engine/cult{
@@ -19873,7 +19804,6 @@
 /turf/open/floor/tile/dark/brown2,
 /area/lv624/lazarus/atmos)
 "uXT" = (
-/obj/effect/landmark/corpsespawner/chef,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
 	},
@@ -19925,7 +19855,7 @@
 /turf/open/floor/tile/vault{
 	dir = 8
 	},
-/area/lv624/lazarus/robotics)
+/area)
 "uZH" = (
 /obj/structure/computerframe,
 /turf/open/floor/plating/platebot,
@@ -20531,11 +20461,6 @@
 /turf/open/floor/vault,
 /area/lv624/lazarus/quartstorage)
 "vHk" = (
-/obj/effect/landmark/corpsespawner/bridgeofficer{
-	corpseidjob = "Bridge Officer";
-	corpseuniform = /obj/item/clothing/under/waiter;
-	name = "Mr. Johnson Telovin"
-	},
 /obj/item/tool/crowbar,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood,
@@ -22050,13 +21975,6 @@
 /obj/effect/ai_node,
 /turf/open/ground/grass,
 /area/lv624/ground/jungle6)
-"xhO" = (
-/obj/structure/bed/chair/wood/normal{
-	dir = 1
-	},
-/obj/effect/landmark/corpsespawner/russian/ranged,
-/turf/open/floor/cult/clock,
-/area/lv624/lazarus/bar)
 "xhQ" = (
 /turf/open/floor/plating/ground/dirtgrassborder{
 	dir = 4
@@ -22491,7 +22409,6 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle3)
 "xGa" = (
-/obj/effect/landmark/corpsespawner/chef,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/spawner/random/food_or_drink/kitchenknife/butcherweighted,
 /turf/open/floor/freezer,
@@ -23012,15 +22929,6 @@
 /obj/effect/ai_node,
 /turf/open/ground/grass,
 /area/lv624/ground/jungle7)
-"yhE" = (
-/obj/effect/landmark/corpsespawner/security{
-	corpsebelt = null;
-	corpsesuit = /obj/item/clothing/suit/storage/CMB;
-	corpseuniform = /obj/item/clothing/under/CM_uniform;
-	name = "Deputy Edgar Nogi"
-	},
-/turf/open/floor/tile/dark,
-/area/lv624/lazarus/crashed_ship)
 "yin" = (
 /obj/machinery/floodlight/colony,
 /turf/open/floor,
@@ -24026,7 +23934,7 @@ xoT
 mkw
 pNJ
 gaI
-byd
+hVJ
 xQr
 mXa
 mVi
@@ -27294,7 +27202,7 @@ ezO
 fSS
 nbV
 cgB
-xhO
+oGP
 ftO
 meq
 lZZ
@@ -40584,7 +40492,7 @@ mJO
 mJO
 qVS
 qlc
-tUF
+kQY
 mJO
 sib
 mJO
@@ -41874,7 +41782,7 @@ aES
 aES
 oIk
 nnf
-ffX
+pJt
 lML
 ycd
 hEc
@@ -41987,7 +41895,7 @@ aYJ
 bab
 bab
 cVR
-bce
+bab
 bab
 aYJ
 bSe
@@ -44578,7 +44486,7 @@ avd
 sSs
 sWc
 kVH
-uVU
+tUO
 mar
 tUO
 vRC
@@ -46159,7 +46067,7 @@ nzo
 nzo
 lma
 nzo
-ejh
+nzo
 ttF
 ygV
 sCh
@@ -51694,7 +51602,7 @@ vds
 wFh
 xsY
 wAp
-erS
+waQ
 waQ
 waQ
 waQ
@@ -52809,7 +52717,7 @@ sSN
 sSN
 ffL
 vGr
-kQY
+wjy
 rnr
 wjy
 esF
@@ -53775,7 +53683,7 @@ gKr
 gKr
 afx
 wID
-yhE
+wID
 wID
 wID
 aiD
